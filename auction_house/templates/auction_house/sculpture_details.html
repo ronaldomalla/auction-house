@@ -1,0 +1,19 @@
+{% extends 'auction_house/base.html'%}
+{% block content %}
+{% load static %}
+<h1>Sculptures Items Details</h1>
+<img src="{{ sculpturedetails.image.url }}" height="400" width="500">
+<div class="details">
+ARTIST NAME:<h3>{{ sculpturedetails.artist_name }}</h3>
+PRODUCT NAME:<h3>{{ sculpturedetails.title}}</h3>
+
+DISCRIPTION:<h3>{{ sculpturedetails.discription }}</h3>
+<br>
+PUBLISH DATE:<h3>{{ sculpturedetails.pub_date }}</h3>
+PRODUCT PRICE:<h3>{{ sculpturedetails.price }}</h3>
+PRODUCE DATE:<h3>{{ sculpturedetails.produced_date }}</h3>
+AUCTION DATE:<h3>{{ sculpturedetails.auction_date }}</h3>
+
+    <a href="{%url 'bid'%}" ><button>BID COMMISION</button></a>
+</div>
+{% endblock %}

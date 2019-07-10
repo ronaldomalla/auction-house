@@ -1,0 +1,42 @@
+{% extends 'auction_house/base.html'%}
+{% block content %}
+<h1>this is commision bidding page </h1>
+<form class="bid" method="post" action="{% url 'bid'%}">
+    {% csrf_token %}
+    <p>FULL NAME:</p><BR>
+    <input type="text" name="fullname" placeholder="Enter Your full Name">
+    <br><br>
+    <P>Your Email Adrress</P>
+    <br>
+    <input type="email" name="email" placeholder="Enter Your Email Adress">
+    <br><br>
+    <p>Contact NO:</p><br>
+    <input type="number" name="phone">
+    <br><br>
+    <p>Enter Your ID card Proove:</p>
+    <br>
+    <br>
+    <input type="file" name="citizenship">
+    <br><br>
+    <p>ENTER YOUR AMOUNT</p>
+    <select name="amount">
+        <option>10000</option>
+        <option>15000</option>
+        <option>25000</option>
+        <option>35000</option>
+        <option>60000</option>
+    </select>
+    upto
+     <select name="amount">
+        <option>15000</option>
+        <option>25000</option>
+        <option>35000</option>
+        <option>60000</option>
+        <option>80000</option>
+    </select>
+    <br><br><br>
+
+    <input type="submit" class="done_bid" value="DONE YOUR BIDS">
+</form>
+
+{% endblock %}

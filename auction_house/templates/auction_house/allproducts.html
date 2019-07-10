@@ -1,0 +1,105 @@
+{% extends 'auction_house/base.html'%}
+
+{% block content %}
+<h1 style="text-align:center;"><bolder>ALL PRODUCTS</bolder></h1>
+<form method="post" action="{% url 'allproducts'%}">
+	{% csrf_token %}
+<input class="typesearch" type="search" name="q" placeholder="search here...">
+
+	<input class="search" type="submit" name="sumbit" value="search">
+</form>
+
+<div class="container">
+	 {% for drawingpost in drawing_product.all %}
+	<div class="card">
+	<div class="image">
+		<img src="{{ drawingpost.image.url }}">
+	</div>
+		<div class="title">
+			<h2>{{ drawingpost.title}}</h2>
+		</div>
+		<div class="discription">
+			<h4>{{ drawingpost.summary }}</h4>
+			<h5>{{ drawingpost.pub_date }}</h5>
+			<h3>{{ drawingpost.price }}</h3>
+			<a href="{% url 'drawingdetails' drawingpost.id %}"><button>commision bid</button></a>
+		</div>
+	</div>
+	{% endfor %}
+
+
+    {% for paintingpost in painting_product.all %}
+	<div class="card">
+	<div class="image">
+		<img src="{{ paintingpost.image.url }}">
+	</div>
+		<div class="title">
+			<h2>{{ paintingpost.title}}</h2>
+		</div>
+		<div class="discription">
+			<h4>{{ paintingpost.summary }}</h4>
+			<h5>{{ paintingpost.pub_date }}</h5>
+			<h3>{{ paintingpost.price }}</h3>
+			<a href="{% url 'paintingdetails' paintingpost.id %}"><button>commision bid</button></a>
+		</div>
+	</div>
+	{% endfor %}
+
+
+    {% for carvingpost in carving_product.all %}
+	<div class="card">
+	<div class="image">
+		<img src="{{ carvingpost.image.url }}">
+	</div>
+		<div class="title">
+			<h2>{{ carvingpost.title }}</h2>
+		</div>
+		<div class="discription">
+			<h4>{{ carvingpost.summary }}</h4>
+			<h5>{{ carvingpost.pub_date }}</h5>
+			<h3>{{ carvingpost.price }}</h3>
+			<a href="{% url 'carvingdetails' carvingpost.id %}"><button>commision bid</button></a>
+		</div>
+	</div>
+	{% endfor %}
+
+    {% for sculpturepost in sculpture_product.all %}
+	<div class="card">
+	<div class="image">
+		<img src="{{ sculpturepost.image.url }}">
+	</div>
+		<div class="title">
+			<h2>{{ sculpturepost.title}}</h2>
+		</div>
+		<div class="discription">
+			<h4>{{ sculpturepost.summary }}</h4>
+			<h5>{{ sculpturepost.pub_date }}</h5>
+			<h3>{{ sculpturepost.price }}</h3>
+			<a href="{% url 'sculpturedetails' sculpturepost.id %}"><button>commision bid</button></a>
+		</div>
+	</div>
+	{% endfor %}
+
+    {% for photographicpost in photographic_product.all %}
+	<div class="card">
+	<div class="image">
+		<img src="{{ photographicpost.image.url }}">
+	</div>
+		<div class="title">
+			<h2>{{ photographicpost.title}}</h2>
+		</div>
+		<div class="discription">
+			<h4>{{ photographicpost.summary }}</h4>
+			<h5>{{ photographicpost.pub_date }}</h5>
+			<h3>{{ photographicpost.price }}</h3>
+			<a href="{% url 'photographicdetails' photographicpost.id %}"><button>commision bid</button></a>
+		</div>
+	</div>
+	{% endfor %}
+
+
+</div>
+
+
+
+{% endblock %}
